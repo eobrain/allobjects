@@ -1,5 +1,9 @@
 {
   "type": "module",
+  "scripts": {
+    "rebuild": "bajel rebuild",
+    "build": "bajel build"
+  },
   "dependencies": {
     "bajel": "^1.1.0",
     "csv-parse": "^5.5.2",
