@@ -16,11 +16,13 @@ for (const row of rows) {
   for (const series of seriesList) {
     if (row[series.name]) {
       const y = Number(row[series.name])
-      series.data.push([x, y])
+      series.data.push(`{x:${x},y:${y}}`)
     }
   }
 }
 
-const javascript = seriesList.map(s => `{name:'${s.name}',data:${JSON.stringify(s.data)}}`)
+const javascript = seriesList.map(s =>
+    `{data:[${s.data.join(',')}]}`
+)
 
 console.log(`export default [${javascript.join(',')}]`)
