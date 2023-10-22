@@ -1,23 +1,29 @@
-/* global ApexCharts, $chart */
-import series from './series.js'
+/* global CanvasJS */
+import data from './series.js'
 
 const logarithmic = true
-const type = 'numeric'
 
 const options = {
-  chart: {
-    // height: 350,
-    type: 'scatter'
-    // zoom: {
-    //  enabled: true,
-    //  type: 'xy'
-    // }
+  animationEnabled: true,
+  title: {
+    text: 'All Objects'
   },
-  series,
-  xaxis: { logarithmic, type },
-  yaxis: { logarithmic, type }
+  axisX: {
+    logarithmic,
+    title: 'Radius',
+    suffix: 'm'
+  },
+  axisY: {
+    logarithmic,
+    title: 'Mass',
+    suffix: 'kg'
+  },
+  legend: {
+    cursor: 'pointer'
+  },
+  data
 }
 
-const chart = new ApexCharts($chart, options)
+const chart = new CanvasJS.Chart('$chart', options)
 
 chart.render()
