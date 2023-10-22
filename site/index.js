@@ -1,11 +1,9 @@
 /* global Chart, $chart */
-import datasets from './series.js'
+import data from './series.js'
 
 const config = {
   type: 'scatter',
-  data: {
-    datasets
-  },
+  data,
   options: {
     scales: {
       x: {
@@ -19,26 +17,7 @@ const config = {
     }
   }
 }
-/*
-const config =  {
-  type: 'bar',
-  data: {
-    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-    datasets: [{
-      label: '# of Votes',
-      data: [12, 19, 3, 5, 2, 3],
-      borderWidth: 1
-    }]
-  },
-  options: {
-    scales: {
-      y: {
-        beginAtZero: true
-      }
-    }
-  }
-}
-*/
+
 /*
 
 const logarithmic = true
