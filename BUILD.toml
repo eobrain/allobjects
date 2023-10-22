@@ -1,0 +1,8 @@
+EXPORT="https://docs.google.com/spreadsheets/d/e/2PACX-1vRmd001iDpr23_P0VlYmeFkjn7q-4Nz3PDmHnORR_lESblEyI6z7pdtl3EUI7x63cJDuVglBckgGOt8/pub?gid=212064600&single=true&output=csv"
+
+["site/series.js"]
+deps=["data.csv"]
+exec="node convert.js > $@"
+
+["data.csv"]
+exec="wget '$(EXPORT)' -O $@"
