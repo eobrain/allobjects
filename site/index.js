@@ -1,18 +1,30 @@
 /* global Chart, $chart */
 import data from './series.js'
 
+const ticks = {
+  callback: (value, index, ticks) => value.toPrecision(1)
+}
+
 const config = {
   type: 'scatter',
   data,
   options: {
+    plugins: {
+      title: {
+        display: true,
+        text: 'All Objects'
+      }
+    },
     scales: {
       x: {
         type: 'logarithmic',
-        position: 'bottom'
+        position: 'bottom',
+        ticks
       },
       y: {
         type: 'logarithmic',
-        position: 'left'
+        position: 'left',
+        ticks
       }
     }
   }
@@ -20,27 +32,15 @@ const config = {
 
 /*
 
-const logarithmic = true
-
 const options = {
-  animationEnabled: true,
-  title: {
-    text: 'All Objects'
-  },
   axisX: {
-    logarithmic,
     title: 'Radius',
     suffix: 'm'
   },
   axisY: {
-    logarithmic,
     title: 'Mass',
     suffix: 'kg'
   },
-  legend: {
-    cursor: 'pointer'
-  },
-  data
 }
 
 const chart = new CanvasJS.Chart('$chart', options)
