@@ -12,7 +12,6 @@ const massColumns = [
   'Extremes'
 ]
 
-const labels = []
 const data = []
 
 for (const row of rows) {
@@ -21,10 +20,9 @@ for (const row of rows) {
     if (row[column]) {
       const y = Number(row[column])
       data.push(`{x:${x},y:${y}}`)
-      labels.push(row.Name)
       break
     }
   }
 }
 
-console.log(`export default {datasets:[{data:[${data.join(',')}]}],labels:${JSON.stringify(labels)}}`)
+console.log(`export default [${data.join(',')}]`)
