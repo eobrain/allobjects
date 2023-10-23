@@ -1,6 +1,27 @@
-/* global d3 */
 import data from './series.js'
+import * as Plot from 'https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6/+esm'
 
+/* global $chart */
+
+const xMin = Math.min(...data.map(d => d.x))
+const xMax = Math.max(...data.map(d => d.x))
+const yMin = Math.min(...data.map(d => d.y))
+const yMax = Math.max(...data.map(d => d.y))
+
+const tickFormat = value => value.toPrecision(1)
+// d3.format('.1')
+
+const plot = Plot.plot({
+  x: { type: 'log', domain: [xMin, xMax], tickFormat, grid: true },
+  y: { type: 'log', domain: [yMin, yMax], tickFormat, grid: true },
+  marks: [
+    Plot.dot(data, { x: 'x', y: 'y' })
+  ]
+})
+
+$chart.append(plot)
+
+/*
 // set the dimensions and margins of the graph
 const margin = { top: 10, right: 30, bottom: 30, left: 60 }
 const width = 460 - margin.left - margin.right
@@ -18,11 +39,6 @@ const svg = d3.select('#chart')
 // Read the data
 // d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/2_TwoNum.csv", function(data) {
 console.log(data)
-
-const xMin = Math.min(...data.map(d => d.x))
-const xMax = Math.max(...data.map(d => d.x))
-const yMin = Math.min(...data.map(d => d.y))
-const yMax = Math.max(...data.map(d => d.y))
 
 // Add X axis
 const x = d3.scaleLog()
@@ -51,6 +67,8 @@ svg.append('g')
   .style('fill', '#69b3a2')
 
 // })
+
+*/
 /*
 
 const ticks = {
