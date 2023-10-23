@@ -19,7 +19,7 @@ for (const row of rows) {
   for (const column of massColumns) {
     if (row[column]) {
       const y = Number(row[column])
-      data.push(`{x:${x},y:${y}}`)
+      data.push(`{radius:${x},mass:${y}}`)
       break
     }
   }

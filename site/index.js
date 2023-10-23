@@ -3,10 +3,10 @@ import * as Plot from 'https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6/+esm'
 
 /* global $chart */
 
-const xMin = Math.min(...data.map(d => d.x))
-const xMax = Math.max(...data.map(d => d.x))
-const yMin = Math.min(...data.map(d => d.y))
-const yMax = Math.max(...data.map(d => d.y))
+const xMin = Math.min(...data.map(d => d.radius))
+const xMax = Math.max(...data.map(d => d.radius))
+const yMin = Math.min(...data.map(d => d.mass))
+const yMax = Math.max(...data.map(d => d.mass))
 
 const tickFormat = value => value.toPrecision(1)
 // d3.format('.1')
@@ -15,7 +15,8 @@ const plot = Plot.plot({
   x: { type: 'log', domain: [xMin, xMax], tickFormat, grid: true },
   y: { type: 'log', domain: [yMin, yMax], tickFormat, grid: true },
   marks: [
-    Plot.dot(data, { x: 'x', y: 'y' })
+    Plot.dot(data, { x: 'radius', y: 'mass', tip: true }),
+    Plot.crosshair(data, { x: 'radius', y: 'mass' })
   ]
 })
 
