@@ -15,7 +15,10 @@ const options = {
   },
   series,
   xaxis: { logarithmic, type },
-  yaxis: { logarithmic, type }
+  yaxis: { logarithmic },
+  dataLabels: {
+    enabled: true,
+  },
 }
 
 const chart = new ApexCharts($chart, options)
