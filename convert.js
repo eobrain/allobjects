@@ -16,7 +16,7 @@ for (const row of rows) {
   for (const series of seriesList) {
     if (row[series.name]) {
       const y = Number(row[series.name])
-      series.dataPoints.push(`{x:${x},y:${y}}`)
+      series.dataPoints.push(`{x:${x},y:${y},label:${JSON.stringify(row.Name)}}`)
     }
   }
 }

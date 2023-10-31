@@ -19,7 +19,7 @@ const options = {
     suffix: 'm',
     minimum: xMin,
     maximum: xMax,
-    interval: xMax / 100.0
+    interval: 100
 
   },
   axisY: {
@@ -28,7 +28,7 @@ const options = {
     suffix: 'kg',
     minimum: yMin,
     maximum: yMax,
-    interval: yMax / 100.0
+    interval: 100
   },
   legend: {
     cursor: 'pointer'
