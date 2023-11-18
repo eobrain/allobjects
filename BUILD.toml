@@ -13,5 +13,9 @@ exec="node convert.js > $@"
 ["data.csv"]
 exec="wget '$(EXPORT)' -O $@"
 
+[serve]
+deps=["build"]
+exec="cd site && ws"
+
 [clean]
 exec="rm -f data.csv site/series.js"

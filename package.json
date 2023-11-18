@@ -8,5 +8,8 @@
     "bajel": "^1.1.0",
     "csv-parse": "^5.5.2",
     "passprint": "^0.0.1"
+  },
+  "devDependencies": {
+    "local-web-server": "^5.3.0"
   }
 }
